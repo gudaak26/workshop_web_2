@@ -1,119 +1,26 @@
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
   margin: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.video-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw; 
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #dceef3;
   overflow: hidden; 
 }
 
-
-#lottie-container {
+video {
   position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 80vh;
-  max-width: 700px;
-  max-height: 700px;
-  filter: url(#combined-blur); 
-  z-index: 0;
-}
-
-#lottie-container-overlay {
-  position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 75vw;
-  height: 75vh;
-  max-width: 620px;
-  max-height: 620px;
-  z-index: 1;
-  pointer-events: none; 
-}
-
-#background-video {
-  position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1; 
-  opacity: 0;
-  transition: opacity 0.1s linear; 
-}
-
-
-.trail {
-  position: absolute;
-  width: 40px; 
-  height: 40px; 
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  animation: fadeOut 1s ease-out forwards;
-  z-index: 10; 
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1); 
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(3); 
-  }
-}
-
-.message-container {
-  position: fixed;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 80px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 30px;
-  color: black;
-  opacity: 1;
-  visibility: visible; /* 처음에는 보이도록 설정 */
-  transition: opacity 1s ease-out, visibility 0s 1s; 
-  z-index: 9999;
-  width: auto; /* 너비를 자동으로 설정 */
-  max-width: 90%; /* 최대 너비를 90%로 설정 (화면 크기에 맞게 조정됨) */
-  white-space: normal; /* 텍스트가 박스를 넘지 않도록 처리 */
-  word-wrap: break-word; /* 긴 단어가 넘칠 때 줄 바꿈 */
-}
-
-/* 메시지가 사라질 때 스타일 */
-.message-container.hidden {
-  opacity: 0; /* 서서히 투명해짐 */
-  visibility: hidden; /* 완전히 숨겨짐 */
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+  transform: translateX(-50%); 
   width: 100vw;
-  height: 100vh;
-  background-color: black;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 1s ease-out, visibility 0s 1s;
-  z-index: 9998; /* message-container보다 뒤에 위치 */
+  height: auto; 
+  object-fit: cover; 
+  cursor: pointer;
 }
 
-/* 오버레이 사라질 때 */
-.overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
